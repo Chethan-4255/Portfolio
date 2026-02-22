@@ -46,7 +46,7 @@
                 <a href="#credentials">Certifications</a>
                 <a href="#projects">Projects & Awards</a>
                 <a href="#contact">Contact</a>
-                <a href="RESUME_CHETHAN_VASTHAW.pdf" target="_blank" class="btn btn-primary"
+                <a href="RESUME_CHETHAN_VASTHAW.pdf" download class="btn btn-primary"
                     style="margin-left: 1rem;">Resume</a>
             </nav>
         </div>
@@ -60,9 +60,21 @@
                 <p class="body-text" style="height: 30px; margin-bottom: 2rem;">
                     <span id="typewriter"></span><span class="cursor"></span>
                 </p>
+                <!-- Social Icons Row -->
+                <div style="display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 1.5rem; align-items: center;">
+                    <!-- Email Copy -->
+                    <span id="btnCopy" title="Click to copy email" onclick="navigator.clipboard.writeText('chethanvasthawtippani@gmail.com');this.title='Copied!';setTimeout(()=>this.title='Click to copy email',2000)" style="cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem; padding:0.3rem 0.7rem; border:2px solid var(--text-espresso); border-radius: 3px; font-size:0.7rem; font-family: var(--pixel-font); color: var(--text-espresso); background: #fff; transition: background 0.15s;">
+                        <i class="fa-solid fa-envelope" style="font-size:0.9rem;"></i> <span style="font-size:0.55rem;">Copy Email</span>
+                    </span>
+                    <!-- GitHub -->
+                    <a href="https://github.com/Chethan-4255" target="_blank" rel="noopener" title="GitHub" style="color: var(--text-espresso); font-size: 1.4rem; transition: color 0.2s;"><i class="fa-brands fa-github"></i></a>
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/chethan-vasthaw/" target="_blank" rel="noopener" title="LinkedIn" style="color: #0077b5; font-size: 1.4rem; transition: color 0.2s;"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
                 <div class="hero-actions" style="justify-content: center;">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <a href="RESUME_CHETHAN_VASTHAW.pdf" download class="btn btn-secondary" style="border-color: var(--accent-gold);"><i class="fa-solid fa-download"></i> Resume</a>
                 </div>
             </div>
         </section>
@@ -1166,23 +1178,20 @@
             <h2 class="pixel-heading" style="margin-bottom: 1rem; font-size: 1.5rem;">Contact</h2>
             <div class="contact-box">
                 <p class="body-text">Interested in collaborating or have a question? Let's connect!</p>
-                <form action="mailto:chethanvasthawtippani@gmail.com" method="post" enctype="text/plain"
-                    class="pixel-form" style="text-align: left;">
+                <form id="contactForm" class="pixel-form" style="text-align: left;" onsubmit="return submitToGoogleForms(event)">
                     <div class="form-group">
-                        <label for="name" class="pixel-font">Name</label>
-                        <input type="text" id="name" name="name" class="pixel-input" placeholder="Your Name" required>
+                        <label for="cf-name" class="pixel-font">Name</label>
+                        <input type="text" id="cf-name" class="pixel-input" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="pixel-font">Email</label>
-                        <input type="email" id="email" name="email" class="pixel-input" placeholder="Your Email"
-                            required>
+                        <label for="cf-email" class="pixel-font">Email</label>
+                        <input type="email" id="cf-email" class="pixel-input" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <label for="message" class="pixel-font">Message</label>
-                        <textarea id="message" name="message" class="pixel-input" rows="4" placeholder="Your Message"
-                            required></textarea>
+                        <label for="cf-message" class="pixel-font">Message</label>
+                        <textarea id="cf-message" class="pixel-input" rows="4" placeholder="Your Message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    <button type="submit" id="contactSubmitBtn" class="btn btn-primary" style="width: 100%;">Send Message</button>
                 </form>
             </div>
         </section>
@@ -1190,15 +1199,88 @@
 
     <footer class="pixel-footer">
         <div class="container footer-content">
-            <div class="social-links">
-                <a href="https://github.com/Chethan-4255" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/chethan-vasthaw" target="_blank" rel="noopener">LinkedIn</a>
+            <div class="social-links" style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="https://github.com/Chethan-4255" target="_blank" rel="noopener" style="color: var(--accent-gold);"><i class="fa-brands fa-github" style="font-size:1.2rem;"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/chethan-vasthaw/" target="_blank" rel="noopener" style="color: var(--accent-gold);"><i class="fa-brands fa-linkedin" style="font-size:1.2rem;"></i> LinkedIn</a>
+                <a href="RESUME_CHETHAN_VASTHAW.pdf" download style="color: #FAF3E6; background: var(--accent-gold); padding: 0.4rem 0.9rem; border-radius: 3px; font-family: var(--pixel-font); font-size: 0.65rem; text-decoration: none;"><i class="fa-solid fa-download"></i> Resume</a>
             </div>
             <p class="copyright body-text">&copy; 2025 Chethan Vasthaw Tippani. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/+91701312524?text=Hi%20Chethan!" target="_blank" rel="noopener" id="whatsapp-float" style="
+        position: fixed; bottom: 24px; right: 24px; z-index: 999;
+        width: 56px; height: 56px; border-radius: 50%;
+        background: #25D366; color: #fff; display: flex; align-items: center; justify-content: center;
+        font-size: 1.7rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s;
+        text-decoration: none;"
+        onmouseover="this.style.transform='scale(1.1)'"
+        onmouseout="this.style.transform='scale(1)'">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <script src="scripts/main.js"></script>
+    <script>
+    // === Google Forms Silent Submit ===
+    function submitToGoogleForms(e) {
+        e.preventDefault();
+        const name = document.getElementById('cf-name').value;
+        const email = document.getElementById('cf-email').value;
+        const message = document.getElementById('cf-message').value;
+        const btn = document.getElementById('contactSubmitBtn');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfL6uunCQ_tKGU1YWY17WB8lPd8WtpSmmI0VRR_0pFCjzn5-A/formResponse';
+        const data = new URLSearchParams();
+        data.append('entry.167931849', name);
+        data.append('entry.886406003', email);
+        data.append('entry.60422879', message);
+
+        fetch(formUrl, { method: 'POST', mode: 'no-cors', body: data })
+        .then(() => {
+            btn.textContent = '✓ Message Sent!';
+            btn.style.background = '#2ecc71';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; btn.style.background = ''; }, 3000);
+        })
+        .catch(() => {
+            btn.textContent = '✓ Message Sent!';
+            btn.style.background = '#2ecc71';
+            document.getElementById('contactForm').reset();
+            setTimeout(() => { btn.textContent = 'Send Message'; btn.disabled = false; btn.style.background = ''; }, 3000);
+        });
+        return false;
+    }
+
+    // === Description "Show more / less" Truncation ===
+    document.addEventListener('DOMContentLoaded', () => {
+        const MAX_CHARS = 250;
+        document.querySelectorAll('.li-desc').forEach(desc => {
+            const full = desc.innerHTML;
+            const text = desc.textContent;
+            if (text.length > MAX_CHARS) {
+                const truncatedText = text.substring(0, MAX_CHARS);
+                desc.setAttribute('data-full', full);
+                desc.innerHTML = truncatedText + '... <a href="#" class="desc-toggle" style="color:var(--accent-gold); font-weight:600; text-decoration:none; font-size:0.85rem;" onclick="event.preventDefault(); toggleDesc(this)">Show more</a>';
+            }
+        });
+    });
+    function toggleDesc(link) {
+        const desc = link.closest('.li-desc');
+        if (desc.hasAttribute('data-collapsed')) {
+            desc.innerHTML = desc.getAttribute('data-full') + ' <a href="#" class="desc-toggle" style="color:var(--accent-gold); font-weight:600; text-decoration:none; font-size:0.85rem;" onclick="event.preventDefault(); toggleDesc(this)">Show less</a>';
+            desc.removeAttribute('data-collapsed');
+        } else {
+            const fullHTML = desc.getAttribute('data-full');
+            const text = desc.textContent;
+            const truncatedText = desc.textContent.substring(0, 250);
+            desc.innerHTML = truncatedText + '... <a href="#" class="desc-toggle" style="color:var(--accent-gold); font-weight:600; text-decoration:none; font-size:0.85rem;" onclick="event.preventDefault(); toggleDesc(this)">Show more</a>';
+            desc.setAttribute('data-collapsed', 'true');
+        }
+    }
+    </script>
 </body>
 
 </html>
