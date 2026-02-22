@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chethan-4255.github.io/Portfolio/sitemap.xml
