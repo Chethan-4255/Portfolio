@@ -612,6 +612,7 @@ header.navbar {
         font-size: 1.5rem;
     }
 }
+
 /* -------------------------------------
    Premium Live Button Styling
 -------------------------------------- */
@@ -724,6 +725,7 @@ header.navbar {
     .modal-content-wrapper {
         padding: 1rem;
     }
+
     #modal-pdf {
         width: 95vw;
         height: 80vh;
@@ -827,7 +829,10 @@ header.navbar {
 
 /* Tablet & smaller */
 @media (max-width: 768px) {
-    .hamburger { display: block; }
+    .hamburger {
+        display: block;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
@@ -841,50 +846,280 @@ header.navbar {
         gap: 0.8rem;
         z-index: 100;
     }
-    .nav-links.open { display: flex; }
-    .nav-links a { font-size: 0.65rem; }
-    .hero-content h2 { font-size: 1.3rem !important; }
-    .hero-actions { flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
-    .hero-actions .btn { font-size: 0.6rem; padding: 0.6rem 1rem; }
-    .li-section { padding: 1rem; box-shadow: 4px 4px 0 var(--shadow-espresso); }
-    .li-item { flex-direction: column; }
-    .li-logo { width: 48px; height: 48px; flex-shrink: 0; }
-    .li-title { font-size: 0.7rem; }
-    .li-subtitle, .li-date, .li-skills { font-size: 0.55rem; }
-    .li-desc { font-size: 0.85rem; }
-    .li-thumbnails { flex-wrap: wrap; }
-    .li-thumbnail { width: 100%; max-width: 200px; height: auto; }
-    .pixel-card { padding: 1rem; box-shadow: 4px 4px 0 var(--shadow-espresso); }
-    .li-header h2 { font-size: 0.8rem; }
-    .contact-box { padding: 0 0.5rem; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    .blog-carousel-track { gap: 1rem; }
-    .blog-card { width: 240px; }
-    .modal-content-wrapper { padding: 1rem; }
-    #modal-pdf { width: 95vw; height: 80vh; }
-    .pixel-footer { padding: 1.5rem 0; }
-    .social-links { flex-wrap: wrap; justify-content: center; }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 0.65rem;
+    }
+
+    /* Hero */
+    #hero {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+        min-height: auto !important;
+    }
+
+    .hero-content h2 {
+        font-size: 1.3rem !important;
+    }
+
+    .hero-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.6rem;
+    }
+
+    .hero-actions .btn {
+        font-size: 0.6rem;
+        padding: 0.6rem 1rem;
+    }
+
+    /* Email row — stack vertically on mobile */
+    #btnCopy {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        font-size: 0.7rem !important;
+    }
+
+    #btnCopy span:not(#copyHint):not(#copyToast) {
+        font-size: 0.65rem !important;
+        word-break: break-all;
+    }
+
+    /* Sections */
+    .li-section {
+        padding: 1rem;
+        box-shadow: 4px 4px 0 var(--shadow-espresso);
+        overflow-x: hidden;
+    }
+
+    .li-item {
+        flex-direction: column;
+    }
+
+    .li-logo {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+    }
+
+    .li-title {
+        font-size: 0.7rem;
+    }
+
+    .li-subtitle,
+    .li-date,
+    .li-skills {
+        font-size: 0.55rem;
+    }
+
+    .li-desc {
+        font-size: 0.85rem;
+    }
+
+    .li-thumbnails {
+        flex-wrap: wrap;
+    }
+
+    .li-thumbnail {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .pixel-card {
+        padding: 1rem;
+        box-shadow: 4px 4px 0 var(--shadow-espresso);
+        overflow-x: hidden;
+        word-wrap: break-word;
+    }
+
+    .li-header h2 {
+        font-size: 0.8rem;
+    }
+
+    .contact-box {
+        padding: 0 0.5rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-carousel-track {
+        gap: 1rem;
+    }
+
+    .blog-card {
+        width: 240px;
+    }
+
+    .modal-content-wrapper {
+        padding: 1rem;
+    }
+
+    #modal-pdf {
+        width: 95vw;
+        height: 80vh;
+    }
+
+    .pixel-footer {
+        padding: 1.5rem 0;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Overflow protection */
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        overflow-x: hidden;
+    }
+
+    .hero-section {
+        overflow-x: hidden;
+    }
+
+    /* Credential & live buttons */
+    .li-credential-btn,
+    .li-live-btn {
+        font-size: 0.5rem !important;
+        padding: 0.4rem 0.6rem !important;
+    }
 }
 
 /* Phone */
 @media (max-width: 480px) {
-    .logo { font-size: 0.85rem !important; }
-    .hero-content h2 { font-size: 1rem !important; }
-    .subtitle { font-size: 0.85rem !important; }
-    .hero-actions { flex-direction: column; align-items: center; }
-    .hero-actions .btn { width: 80%; font-size: 0.55rem; }
-    .li-section { margin-left: -0.5rem; margin-right: -0.5rem; border-left: none; border-right: none; }
-    .li-title { font-size: 0.6rem; }
-    .li-desc { font-size: 0.8rem; }
-    .container { padding-left: 1rem; padding-right: 1rem; }
-    .blog-card { width: 220px; }
-    .blog-card-img { height: 120px; }
-    .blog-card-title { font-size: 0.5rem; }
-    #whatsapp-float { width: 48px; height: 48px; font-size: 1.4rem; bottom: 16px; right: 16px; }
+    .logo {
+        font-size: 0.85rem !important;
+    }
+
+    #hero {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .hero-content h2 {
+        font-size: 1rem !important;
+    }
+
+    .subtitle {
+        font-size: 0.8rem !important;
+    }
+
+    /* Stack hero buttons vertically */
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        font-size: 0.55rem;
+        text-align: center;
+    }
+
+    /* Email row wraps and centers */
+    #btnCopy {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.3rem !important;
+        text-align: center;
+    }
+
+    #copyHint {
+        display: none !important;
+    }
+
+    /* Sections full width */
+    .li-section {
+        margin-left: -0.5rem;
+        margin-right: -0.5rem;
+        border-left: none;
+        border-right: none;
+    }
+
+    .li-title {
+        font-size: 0.6rem;
+    }
+
+    .li-desc {
+        font-size: 0.78rem;
+        line-height: 1.6;
+    }
+
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    /* Blog cards */
+    .blog-card {
+        width: 220px;
+    }
+
+    .blog-card-img {
+        height: 120px;
+    }
+
+    .blog-card-title {
+        font-size: 0.5rem;
+    }
+
+    /* WhatsApp button smaller */
+    #whatsapp-float {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    /* Footer */
+    .footer-content {
+        padding: 0 1rem;
+    }
+
+    .social-links {
+        gap: 1rem !important;
+    }
+
+    .social-links a {
+        font-size: 0.6rem !important;
+    }
+
+    /* Section headings */
+    .pixel-heading {
+        font-size: 1.2rem !important;
+    }
+
+    .section-title {
+        font-size: 1rem !important;
+    }
+
+    /* Fix pixel card hover on mobile */
+    .pixel-card:hover {
+        transform: none;
+        box-shadow: 4px 4px 0 var(--shadow-espresso);
+    }
 }
 
 /* Large desktop */
 @media (min-width: 1200px) {
-    .container { max-width: 1100px; margin: 0 auto; }
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
 }
