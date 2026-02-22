@@ -42,7 +42,7 @@ input[type="button"],
 .li-show-all,
 .hamburger,
 .cert-card {
-    cursor: url('https://unpkg.com/rpgui@1.0.3/img/cursor/pointer.png'), pointer !important;
+    cursor: url('https://unpkg.com/rpgui@1.0.3/img/cursor/point.png'), pointer !important;
 }
 
 /* Typography */
