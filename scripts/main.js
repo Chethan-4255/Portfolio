@@ -176,12 +176,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     const isMedia = url.match(/\.(jpeg|jpg|gif|png|pdf)(\?.*)?$/i) ||
                         url.includes('media.licdn.com/dms/image') ||
                         url.includes('CERTS/') ||
-                        url.includes('Images/');
+                        url.includes('Images/') ||
+                        url.includes('drive.google.com');
 
                     if (!isMedia) {
                         return; // Let standard web URLs act normally (like live site links)
                     }
                     e.preventDefault(); // Stop navigation, handle in modal
+
+                    // Convert Google Drive share links to embeddable preview links
+                    if (url.includes('drive.google.com')) {
+                        const driveMatch = url.match(/\/file\/d\/([^/]+)/);
+                        if (driveMatch) {
+                            url = `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+                        }
+                        type = 'pdf';
+                        openModal(url, type);
+                        return;
+                    }
                 } else if (el.tagName.toLowerCase() === 'img') {
                     // Check if parent is a link, if so let the link handler do it
                     if (el.closest('a')) return;
