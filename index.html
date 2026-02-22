@@ -6,38 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chethan Vasthaw Tippani - Portfolio</title>
 
-    <!-- SEO Meta Tags -->
     <meta name="description"
         content="Portfolio of Chethan Vasthaw Tippani, an enthusiastic technologist and full-stack developer specializing in AI and decentralized platforms.">
     <link rel="canonical" href="https://chethan-4255.github.io/Portfolio/">
 
-    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Chethan Vasthaw Tippani - Portfolio">
     <meta property="og:description"
         content="Portfolio of Chethan Vasthaw Tippani, an enthusiastic technologist and full-stack developer.">
     <meta property="og:image" content="https://chethan-4255.github.io/Portfolio/assets/og-image.png">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Styles & Favicon -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="styles/8bit.css">
 </head>
 
 <body>
-    <header class="navbar pixel-border">
-        <div class="nav-content container">
-            <h1 class="logo">CT</h1>
-            <nav class="nav-links">
-                <a href="#hero" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#certificates">Certificates</a>
+    <div class="cube-container">
+        <div class="cube"></div>
+        <div class="cube cube2"></div>
+        <div class="cube cube3"></div>
+        <div class="cube cube4"></div>
+    </div>
+
+    <header class="navbar"
+        style="border-bottom: var(--border-size) solid var(--text-espresso); background: var(--bg-cream);">
+        <div class="nav-content"
+            style="padding: 0 1.5rem; display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <h1 class="logo"
+                style="font-size: 1.2rem; font-family: 'Press Start 2P', monospace; line-height: 1.4; text-align: left; margin: 0;">
+                Chethan<br>Vasthaw</h1>
+            <button id="hamburger" class="hamburger"><i class="fa-solid fa-bars"></i></button>
+            <nav class="nav-links" id="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#credentials">Certifications</a>
+                <a href="#projects">Projects & Awards</a>
                 <a href="#contact">Contact</a>
                 <a href="RESUME_CHETHAN_VASTHAW.pdf" target="_blank" class="btn btn-primary"
                     style="margin-left: 1rem;">Resume</a>
@@ -46,218 +53,320 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section id="hero" class="container" style="padding-top: 5rem; padding-bottom: 5rem;">
-            <div class="hero-content">
+            <div class="hero-content" style="text-align: center;">
                 <h2 class="pixel-heading">Hello, World!</h2>
                 <h3 class="subtitle">I'm Chethan Vasthaw Tippani</h3>
-                <p class="body-text">
-                    An enthusiastic technologist building tools for real-world problems. From AI apps to decentralized
-                    platforms, I love creating meaningful impact.
+                <p class="body-text" style="height: 30px; margin-bottom: 2rem;">
+                    <span id="typewriter"></span><span class="cursor"></span>
                 </p>
-                <div class="hero-actions">
+                <div class="hero-actions" style="justify-content: center;">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
             </div>
-            <div class="hero-image-wrap">
-                <img src="assets/pixel-portrait.png" alt="Pixel art portrait of Chethan Vasthaw" class="pixel-portrait"
-                    loading="eager">
-            </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="container">
-            <h2 class="pixel-heading section-title">About Me</h2>
-            <div class="pixel-card">
-                <p class="body-text">
-                    I’m an enthusiastic and self-taught technologist who enjoys building tools that solve real-world
-                    problems. From AI-based apps to decentralized platforms, I love experimenting with tech and using it
-                    to drive meaningful impact. My recent work involves AI integrations, smart contracts, and responsive
-                    web development using modern front-end tools.
-                </p>
-                <p class="body-text">
-                    Currently pursuing my 12th Grade at Resonance Junior College, Warangal, with an outstanding academic
-                    achievement of 89.1%. I'm passionate about creating innovative solutions that make a difference in
-                    people's lives.
-                </p>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
+        <!-- Skills Section with DevIcons -->
         <section id="skills" class="container">
-            <h2 class="pixel-heading section-title">Skills & Tech</h2>
-            <div class="skills-grid">
-                <div class="skill-category pixel-card">
-                    <h3 class="pixel-subheading">Languages</h3>
-                    <div class="tag-cloud">
-                        <span class="pixel-tag">Python</span>
-                        <span class="pixel-tag">JavaScript</span>
-                        <span class="pixel-tag">HTML</span>
-                        <span class="pixel-tag">CSS</span>
-                        <span class="pixel-tag">Solidity</span>
-                        <span class="pixel-tag">TypeScript</span>
-                    </div>
+            <h2 class="pixel-heading section-title">Tech Stack</h2>
+            <div class="pixel-card" style="text-align: center;">
+                <div
+                    style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; font-size: 2.5rem; color: var(--text-espresso);">
+                    <i class="fa-brands fa-python" title="Python"></i>
+                    <i class="fa-brands fa-js" title="JavaScript"></i>
+                    <i class="fa-brands fa-html5" title="HTML5"></i>
+                    <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+                    <i class="fa-brands fa-react" title="React"></i>
+                    <i class="fa-brands fa-node-js" title="Node.js"></i>
+                    <i class="fa-brands fa-git-alt" title="Git"></i>
+                    <i class="fa-brands fa-ethereum" title="Ethereum/Solidity"></i>
+                    <!-- using image for TS since FA missing full color sometimes -->
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                        alt="TypeScript" style="width: 2.5rem; height: 2.5rem;">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+                        alt="Firebase" style="width: 2.5rem; height: 2.5rem;">
                 </div>
-                <div class="skill-category pixel-card">
-                    <h3 class="pixel-subheading">Tech Areas</h3>
-                    <div class="tag-cloud">
-                        <span class="pixel-tag">dApps</span>
-                        <span class="pixel-tag">AI Web Tools</span>
-                        <span class="pixel-tag">Data Science</span>
-                        <span class="pixel-tag">Machine Learning</span>
-                        <span class="pixel-tag">Automation</span>
-                    </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="container li-section" style="margin-top: 4rem;">
+            <div class="li-header">
+                <h2>Experience</h2>
+            </div>
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                    <i class="fa-solid fa-briefcase"></i>
                 </div>
-                <div class="skill-category pixel-card">
-                    <h3 class="pixel-subheading">Tools</h3>
-                    <div class="tag-cloud">
-                        <span class="pixel-tag">React</span>
-                        <span class="pixel-tag">Firebase</span>
-                        <span class="pixel-tag">Hardhat</span>
-                        <span class="pixel-tag">Git</span>
-                        <span class="pixel-tag">Firestore</span>
+                <div class="li-content">
+                    <div class="li-title">Frontend Developer</div>
+                    <div class="li-subtitle">Canvas for Impact</div>
+                    <div class="li-date">2025</div>
+                    <div class="li-desc">Developed and maintained the frontend for Canvas for Impact, an NGO focused on
+                        social change. Implemented responsive design and user-friendly interfaces to enhance user
+                        engagement.</div>
+                </div>
+            </div>
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="li-content">
+                    <div class="li-title">Freelance Web Developer</div>
+                    <div class="li-subtitle">Dear Abroad (Overseas Education Consultancy)</div>
+                    <div class="li-date">2025</div>
+                    <div class="li-desc">Designed and developed a complete website for Dear Abroad. Created an intuitive
+                        user experience for students seeking international education opportunities.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="container li-section">
+            <div class="li-header">
+                <h2>Education</h2>
+            </div>
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #8BC34A; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-family: sans-serif;">
+                    R</div>
+                <div class="li-content">
+                    <div class="li-title">Resonance Eduventures Limited</div>
+                    <div class="li-subtitle">PCM</div>
+                    <div class="li-date">2023 - 2025</div>
+                    <div class="li-desc">Grade: 11th & 12th (Intermediate)</div>
+                </div>
+            </div>
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #4CAF50; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-family: sans-serif;">
+                    G</div>
+                <div class="li-content">
+                    <div class="li-title">GREENWOOD HIGH SCHOOL</div>
+                    <div class="li-subtitle">10th, 10th</div>
+                    <div class="li-date">Jun 2019 - Apr 2023</div>
+                    <div class="li-desc">Grade: 7th, 8th, 9th & 10th<br><br>
+                        Activities and societies: Represented the school and won 1st place at the district-level science
+                        fair for the Laser Security System project.<br><br>
+                        Developed a strong interest in science and mathematics during my time at Greenwood High School.
+                        Participated in various academic activities, including representing the school at the
+                        state-level science fair, which nurtured my curiosity and problem-solving abilities. Enjoyed
+                        exploring concepts in physics and chemistry, laying the groundwork for my passion for technology
+                        and innovation.
+                    </div>
+                    <div class="li-thumbnails">
+                        <div
+                            style="display: flex; align-items: center; gap: 0.5rem; border: 1px solid #ddd; padding: 0.5rem; border-radius: 4px; cursor: pointer;">
+                            <img src="CERTS/District 1st.pdf" alt="Thumb"
+                                style="width: 40px; height: 30px; object-fit: cover; background: #eee;"
+                                onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'30\'><rect width=\'100%\' height=\'100%\' fill=\'%23eee\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-size=\'10\'>PDF</text></svg>'">
+                            <span style="font-size: 0.85rem; font-weight: 600;">1st Place Winner - School Science
+                                Fair</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section w/ Original Images -->
-        <section id="projects" class="container">
-            <h2 class="pixel-heading section-title">Projects Showcase</h2>
-            <div class="projects-grid">
+        <!-- Licenses & Certifications -->
+        <section id="credentials" class="container li-section">
+            <div class="li-header">
+                <h2>Licenses & certifications</h2>
+            </div>
 
-                <article class="project-card pixel-card" style="padding: 0; display: flex; flex-direction: column;">
-                    <img src="Images/Ai4AndhraPolice.jpg" alt="AI4AndhraPolice"
-                        style="width: 100%; height: 200px; object-fit: cover; background: var(--accent-gold); border-bottom: var(--border-size) solid var(--text-espresso);">
-                    <div style="padding: 1.5rem; flex-grow: 1;">
-                        <h3 class="pixel-subheading">AI4AndhraPolice</h3>
-                        <p class="body-text" style="font-size: 0.95rem;">Grievance Redressal System leveraging AI to
-                            streamline police complaint handling and improve citizen services.</p>
-                        <div style="margin-top: auto;">
-                            <a href="#" class="btn btn-small" onclick="alert('Demo placeholder')">📺 Demo</a>
-                        </div>
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #E91E63; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-family: sans-serif;">
+                    CO</div>
+                <div class="li-content">
+                    <div class="li-title">EventPravesh – NFT Event Ticketing Platform (CBIT Hacktoberfest, 2025)</div>
+                    <div class="li-subtitle">CBIT Open Source Community</div>
+                    <div class="li-date">Issued Oct 2025</div>
+                    <a href="#" class="li-credential-btn">Show credential <i
+                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <div class="li-skills"><i class="fa-regular fa-gem"></i> Blockchain, custodial wallets and +4 skills
                     </div>
-                </article>
-
-                <article class="project-card pixel-card" style="padding: 0; display: flex; flex-direction: column;">
-                    <img src="Images/Techfest.jpg" alt="Yantraksh"
-                        style="width: 100%; height: 200px; object-fit: cover; background: var(--accent-gold); border-bottom: var(--border-size) solid var(--text-espresso);">
-                    <div style="padding: 1.5rem; flex-grow: 1;">
-                        <h3 class="pixel-subheading">Yantraksh</h3>
-                        <p class="body-text" style="font-size: 0.95rem;">Finalist at IIT Bombay Techfest - A
-                            comprehensive dApp and farmer empowerment application.</p>
-                        <div style="margin-top: auto;">
-                            <a href="https://www.figma.com/design/C6cPOp0F0bBgrIho67fzTB/Yantraksh"
-                                class="btn btn-small btn-secondary" target="_blank">🎨 Design</a>
-                        </div>
+                    <div class="li-thumbnails">
+                        <img src="Images/EventPravesh.jpg" class="li-thumbnail" onerror="this.style.display='none'">
+                        <img src="CERTS/EventPravesh_cert.png" class="li-thumbnail" onerror="this.style.display='none'">
                     </div>
-                </article>
+                </div>
+            </div>
 
-                <article class="project-card pixel-card" style="padding: 0; display: flex; flex-direction: column;">
-                    <img src="Images/ScanSpark.jpg" alt="ScanSpark App"
-                        style="width: 100%; height: 200px; object-fit: cover; background: var(--accent-gold); border-bottom: var(--border-size) solid var(--text-espresso);">
-                    <div style="padding: 1.5rem; flex-grow: 1;">
-                        <h3 class="pixel-subheading">ScanSpark App</h3>
-                        <p class="body-text" style="font-size: 0.95rem;">Mobile application available on Google Play
-                            Store for efficient document scanning and processing.</p>
-                        <div style="margin-top: auto;">
-                            <a href="https://play.google.com/store/apps/details?id=com.chethanvasthaw.apps.ScanSpark"
-                                class="btn btn-small" target="_blank">📱 Play Store</a>
-                        </div>
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #2196F3; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-family: sans-serif;">
+                    EI</div>
+                <div class="li-content">
+                    <div class="li-title">Summer Training Program at IIT-K (2025) on Artificial Intelligence</div>
+                    <div class="li-subtitle">EICTA Kanpur</div>
+                    <div class="li-date">Issued Aug 2025</div>
+                    <a href="#" class="li-credential-btn">Show credential <i
+                            class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <div class="li-skills"><i class="fa-regular fa-gem"></i> Artificial Intelligence (AI), Machine
+                        learning basics and +1 skill</div>
+                    <div class="li-thumbnails">
+                        <img src="CERTS/IFACET_IITK.png" class="li-thumbnail" onerror="this.style.display='none'">
+                        <img src="CERTS/3-Chethan-Vasthaw.png" class="li-thumbnail" onerror="this.style.display='none'">
                     </div>
-                </article>
+                </div>
+            </div>
 
-                <article class="project-card pixel-card" style="padding: 0; display: flex; flex-direction: column;">
-                    <div
-                        style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: var(--accent-gold); border-bottom: var(--border-size) solid var(--text-espresso);">
-                        🍽️</div>
-                    <div style="padding: 1.5rem; flex-grow: 1;">
-                        <h3 class="pixel-subheading">FoodShare</h3>
-                        <p class="body-text" style="font-size: 0.95rem;">Food Donation Platform connecting donors with
-                            those in need, reducing food waste.</p>
+            <!-- Hidden items -->
+            <div class="li-item hidden-item">
+                <div class="li-logo"
+                    style="background: #FF9800; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    IB</div>
+                <div class="li-content">
+                    <div class="li-title">IIT Bombay Techfest Finalist (Sanrakshan)</div>
+                    <div class="li-subtitle">IIT Bombay</div>
+                    <div class="li-date">Issued 2024</div>
+                    <div class="li-thumbnails">
+                        <img src="Images/Techfest.jpg" class="li-thumbnail" onerror="this.style.display='none'">
                     </div>
-                </article>
+                </div>
+            </div>
 
-                <article class="project-card pixel-card" style="padding: 0; display: flex; flex-direction: column;">
-                    <div
-                        style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: var(--accent-gold); border-bottom: var(--border-size) solid var(--text-espresso);">
-                        🏥</div>
-                    <div style="padding: 1.5rem; flex-grow: 1;">
-                        <h3 class="pixel-subheading">MedChain</h3>
-                        <p class="body-text" style="font-size: 0.95rem;">Blockchain-based Healthcare App ensuring secure
-                            and transparent medical records management.</p>
+            <button class="li-show-all" data-target="credentials">Show all <i
+                    class="fa-solid fa-arrow-right"></i></button>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="container li-section">
+            <div class="li-header">
+                <h2>Projects</h2>
+            </div>
+
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                    <i class="fa-solid fa-folder"></i>
+                </div>
+                <div class="li-content">
+                    <div class="li-title">GuruJi - Personalized Rural Learning Companion (NxtWave x OpenAI Academy
+                        buildathon)</div>
+                    <div class="li-date">Oct 2025 - Oct 2025</div>
+                    <div class="li-desc">AI-powered quiz platform for rural students with multi-language support
+                        (English/Hindi/Telugu), real-time multiplayer...</div>
+                    <div class="li-skills"><i class="fa-regular fa-gem"></i> React.js, TypeScript and +4 skills</div>
+                    <div class="li-thumbnails">
+                        <img src="Images/GuruJi.jpg" class="li-thumbnail" onerror="this.style.display='none'">
                     </div>
-                </article>
+                </div>
+            </div>
 
-                <article class="project-card pixel-card" style="padding: 0; display: flex; flex-direction: column;">
-                    <div
-                        style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: var(--accent-gold); border-bottom: var(--border-size) solid var(--text-espresso);">
-                        💰</div>
-                    <div style="padding: 1.5rem; flex-grow: 1;">
-                        <h3 class="pixel-subheading">Enterprise AI Cost</h3>
-                        <p class="body-text" style="font-size: 0.95rem;">AI-powered tool for optimizing enterprise costs
-                            through intelligent analysis and recommendations.</p>
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                    <i class="fa-solid fa-folder"></i>
+                </div>
+                <div class="li-content">
+                    <div class="li-title">Customer Purchase Behavior Analysis & Prediction For Amazon, Summer Training
+                        Program at IIT-K</div>
+                    <div class="li-date">Jun 2025 - Aug 2025</div>
+                    <div class="li-desc">Thrilled to share my capstone project on 'Customer Purchase Behavior Analysis &
+                        Prediction for Amazon,' a deep dive...</div>
+                    <div class="li-skills"><i class="fa-regular fa-gem"></i> Artificial Intelligence (AI), Machine
+                        learning basics and +2 skills</div>
+                    <div class="li-thumbnails">
+                        <img src="Images/Amazon.jpg" class="li-thumbnail" onerror="this.style.display='none'">
                     </div>
-                </article>
+                </div>
+            </div>
 
+            <div class="li-item hidden-item">
+                <div class="li-logo"
+                    style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                    <i class="fa-solid fa-folder"></i>
+                </div>
+                <div class="li-content">
+                    <div class="li-title">AI4AndhraPolice</div>
+                    <div class="li-date">2024</div>
+                    <div class="li-desc">Grievance Redressal System leveraging AI to streamline police complaint
+                        handling and improve citizen services.</div>
+                    <div class="li-thumbnails">
+                        <img src="Images/Ai4AndhraPolice.jpg" class="li-thumbnail" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+
+            <button class="li-show-all" data-target="projects">Show all <i class="fa-solid fa-arrow-right"></i></button>
+        </section>
+
+        <!-- Honors & Awards -->
+        <section id="awards" class="container li-section">
+            <div class="li-header">
+                <h2>Honors & awards</h2>
+            </div>
+
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #FFD700; display: flex; align-items: center; justify-content: center; color: white;">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="li-content">
+                    <div class="li-title">District-Level Science Fair Winner 1st Place: Laser Security System Project
+                    </div>
+                    <div class="li-subtitle">Issued by Government of Telangana Department of School Education · Dec 2022
+                    </div>
+                    <div class="li-desc">Awarded 1st place at the District-Level Science, Mathematics, and Environment
+                        Exhibition 2022-23 for the Laser Security System project. This innovative project utilized an
+                        RFID reader, fingerprint scanner, PIN code, OTP verification...</div>
+                    <div class="li-thumbnails">
+                        <img src="CERTS/District 1st.pdf" class="li-thumbnail" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+
+            <div class="li-item">
+                <div class="li-logo"
+                    style="background: #9C27B0; display: flex; align-items: center; justify-content: center; color: white;">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="li-content">
+                    <div class="li-title">Reported a security vulnerability in the Dharani state portal – acknowledged
+                        by NCIIPC (2022)</div>
+                    <div class="li-subtitle">Issued by NCIIPC India (A unit of NTRO) · Jul 2022</div>
+                    <div class="li-desc">Reported a Cross-Site Scripting (XSS) vulnerability in the Dharani (Revenue
+                        Department of Telangana) state portal through responsible disclosure....</div>
+                    <div class="li-thumbnails">
+                        <img src="Images/Dharani.jpg" class="li-thumbnail" onerror="this.style.display='none'">
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Certificates Gallery Section -->
-        <section id="certificates" class="container">
-            <h2 class="pixel-heading section-title">Certificates</h2>
-            <div class="projects-grid">
-
-                <article class="pixel-card" style="padding: 0; text-align: center;">
-                    <img src="CERTS/Starting with AI Project clay 2 day workshop.jpg" alt="AI Project Clay"
-                        style="width: 100%; height: 200px; object-fit: cover; border-bottom: var(--border-size) solid var(--text-espresso);">
-                    <div style="padding: 1rem;">
-                        <h4 class="pixel-font">AI Project Clay</h4>
-                    </div>
-                </article>
-
-                <article class="pixel-card" style="padding: 0; text-align: center;">
-                    <img src="CERTS/CHETHAN_VASTHAW_TIPPANI_certificate.png" alt="General Certificate"
-                        style="width: 100%; height: 200px; object-fit: cover; border-bottom: var(--border-size) solid var(--text-espresso);">
-                    <div style="padding: 1rem;">
-                        <h4 class="pixel-font">Certificate of Excellence</h4>
-                    </div>
-                </article>
-
-                <article class="pixel-card"
-                    style="padding: 0; text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                    <div
-                        style="height: 200px; display: flex; align-items: center; justify-content: center; background: var(--bg-cream); border-bottom: var(--border-size) solid var(--text-espresso);">
-                        <span class="pixel-font" style="font-size: 2rem;">PDF</span>
-                    </div>
-                    <div style="padding: 1rem;">
-                        <a href="CERTS/state level science fair certificate.pdf" target="_blank" class="pixel-font"
-                            style="color: var(--text-espresso); text-decoration: none;">State Science Fair</a>
-                    </div>
-                </article>
-
-                <article class="pixel-card"
-                    style="padding: 0; text-align: center; display: flex; flex-direction: column; justify-content: center;">
-                    <div
-                        style="height: 200px; display: flex; align-items: center; justify-content: center; background: var(--bg-cream); border-bottom: var(--border-size) solid var(--text-espresso);">
-                        <span class="pixel-font" style="font-size: 2rem;">PDF</span>
-                    </div>
-                    <div style="padding: 1rem;">
-                        <a href="CERTS/IIT BOMBAY dApp finalists.pdf" target="_blank" class="pixel-font"
-                            style="color: var(--text-espresso); text-decoration: none;">IIT Bombay Finalist</a>
-                    </div>
-                </article>
+        <!-- Languages -->
+        <section id="languages" class="container li-section">
+            <div class="li-header">
+                <h2>Languages</h2>
+            </div>
+            <div style="padding-top: 1rem;">
+                <div style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <div style="font-weight: 600; font-size: 1.1rem; color: var(--text-espresso);">Hindi</div>
+                    <div style="font-size: 0.95rem; color: #666;">Full professional proficiency</div>
+                </div>
+                <div style="margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 1rem;">
+                    <div style="font-weight: 600; font-size: 1.1rem; color: var(--text-espresso);">English</div>
+                    <div style="font-size: 0.95rem; color: #666;">Full professional proficiency</div>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <div style="font-weight: 600; font-size: 1.1rem; color: var(--text-espresso);">Telugu</div>
+                    <div style="font-size: 0.95rem; color: #666;">Full professional proficiency</div>
+                </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="container" style="padding-bottom: 5rem;">
-            <h2 class="pixel-heading section-title">Contact</h2>
-            <div class="contact-box pixel-card">
+        <section id="contact" class="container li-section" style="margin-bottom: 5rem; text-align: center;">
+            <h2 class="pixel-heading" style="margin-bottom: 1rem; font-size: 1.5rem;">Contact</h2>
+            <div class="contact-box">
                 <p class="body-text">Interested in collaborating or have a question? Let's connect!</p>
                 <form action="mailto:chethanvasthawtippani@gmail.com" method="post" enctype="text/plain"
-                    class="pixel-form">
+                    class="pixel-form" style="text-align: left;">
                     <div class="form-group">
                         <label for="name" class="pixel-font">Name</label>
                         <input type="text" id="name" name="name" class="pixel-input" placeholder="Your Name" required>
@@ -272,7 +381,7 @@
                         <textarea id="message" name="message" class="pixel-input" rows="4" placeholder="Your Message"
                             required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                 </form>
             </div>
         </section>
