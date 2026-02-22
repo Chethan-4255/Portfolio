@@ -170,16 +170,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (el.tagName.toLowerCase() === 'a') {
                     url = el.getAttribute('href');
-                    if (!url || url === '#' || url.startsWith('http')) return; // let external links go usually unless image/pdf
+                    if (!url || url === '#') return;
 
-                    // Check if it links to an image or pdf explicitly instead of a generic web page
-                    if (!url.toLowerCase().match(/\.(jpeg|jpg|gif|png|pdf)$/)) {
-                        return; // Let standard web URLs act normally
+                    // Check if it links to media (images, PDFs, or LinkedIn secure image links)
+                    const isMedia = url.match(/\.(jpeg|jpg|gif|png|pdf)(\?.*)?$/i) ||
+                        url.includes('media.licdn.com/dms/image') ||
+                        url.includes('CERTS/') ||
+                        url.includes('Images/');
+
+                    if (!isMedia) {
+                        return; // Let standard web URLs act normally (like live site links)
                     }
-                    e.preventDefault(); // Stop navigation, its media
+                    e.preventDefault(); // Stop navigation, handle in modal
                 } else if (el.tagName.toLowerCase() === 'img') {
                     // Check if parent is a link, if so let the link handler do it
-                    if (el.parentElement.tagName.toLowerCase() === 'a') return;
+                    if (el.closest('a')) return;
                     url = el.getAttribute('src');
                     // Avoid placeholder images
                     if (url.includes('via.placeholder.com')) return;
@@ -187,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (!url) return;
 
-                if (url.toLowerCase().endsWith('.pdf')) {
+                if (url.toLowerCase().includes('.pdf')) {
                     type = 'pdf';
                 }
 
