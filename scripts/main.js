@@ -103,4 +103,100 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // 5. Universal Modal Logic
+    const initModal = () => {
+        // Create modal DOM elements if they don't exist
+        if (!document.getElementById('universal-modal')) {
+            const modalHTML = `
+                <div id="universal-modal" class="modal-overlay">
+                    <div class="modal-content-wrapper">
+                        <button id="modal-close" class="modal-close-btn"><i class="fa-solid fa-xmark"></i></button>
+                        <img id="modal-image" src="" alt="Enlarged View">
+                        <iframe id="modal-pdf" src=""></iframe>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        const modal = document.getElementById('universal-modal');
+        const modalImg = document.getElementById('modal-image');
+        const modalPdf = document.getElementById('modal-pdf');
+        const closeBtn = document.getElementById('modal-close');
+
+        const openModal = (url, type) => {
+            modalImg.style.display = 'none';
+            modalPdf.style.display = 'none';
+
+            if (type === 'image') {
+                modalImg.src = url;
+                modalImg.style.display = 'block';
+            } else if (type === 'pdf') {
+                modalPdf.src = url;
+                modalPdf.style.display = 'block';
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                modalImg.src = '';
+                modalPdf.src = '';
+            }, 300); // Clear after fade out
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal(); // Close if clicking outside wrapper
+        });
+
+        // Attach to all elements inside .li-thumbnails
+        // Also handling direct image tags and links that don't belong to buttons
+        document.querySelectorAll('.li-thumbnails a, .li-thumbnails img').forEach(el => {
+            if (el.tagName.toLowerCase() === 'a' && el.classList.contains('li-credential-btn')) {
+                return; // Dont hijack actual external credential buttons
+            }
+            if (el.tagName.toLowerCase() === 'a' && el.classList.contains('li-live-btn')) {
+                return; // Dont hijack live site buttons
+            }
+
+            el.addEventListener('click', (e) => {
+                let url = '';
+                let type = 'image';
+
+                if (el.tagName.toLowerCase() === 'a') {
+                    url = el.getAttribute('href');
+                    if (!url || url === '#' || url.startsWith('http')) return; // let external links go usually unless image/pdf
+
+                    // Check if it links to an image or pdf explicitly instead of a generic web page
+                    if (!url.toLowerCase().match(/\.(jpeg|jpg|gif|png|pdf)$/)) {
+                        return; // Let standard web URLs act normally
+                    }
+                    e.preventDefault(); // Stop navigation, its media
+                } else if (el.tagName.toLowerCase() === 'img') {
+                    // Check if parent is a link, if so let the link handler do it
+                    if (el.parentElement.tagName.toLowerCase() === 'a') return;
+                    url = el.getAttribute('src');
+                    // Avoid placeholder images
+                    if (url.includes('via.placeholder.com')) return;
+                }
+
+                if (!url) return;
+
+                if (url.toLowerCase().endsWith('.pdf')) {
+                    type = 'pdf';
+                }
+
+                openModal(url, type);
+            });
+        });
+    };
+
+    // run after a slight delay to ensure all DOM elements are parsed
+    setTimeout(initModal, 100);
+
 });
