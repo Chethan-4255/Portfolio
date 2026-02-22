@@ -63,9 +63,15 @@
                 <!-- Social Icons Row -->
                 <div style="display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 1.5rem; align-items: center;">
                     <!-- Email Copy -->
-                    <span id="btnCopy" title="Click to copy email" onclick="navigator.clipboard.writeText('chethanvasthawtippani@gmail.com');this.title='Copied!';setTimeout(()=>this.title='Click to copy email',2000)" style="cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem; padding:0.3rem 0.7rem; border:2px solid var(--text-espresso); border-radius: 3px; font-size:0.7rem; font-family: var(--pixel-font); color: var(--text-espresso); background: #fff; transition: background 0.15s;">
-                        <i class="fa-solid fa-envelope" style="font-size:0.9rem;"></i> <span style="font-size:0.55rem;">Copy Email</span>
+                    <span id="btnCopy" style="cursor:pointer; display:inline-flex; align-items:center; gap:0.5rem; position:relative; color: var(--text-espresso); font-size: 0.85rem; font-family: var(--body-font); transition: color 0.2s;" onclick="navigator.clipboard.writeText('chethanvasthawtippani@gmail.com'); document.getElementById('copyToast').style.opacity='1'; setTimeout(()=>document.getElementById('copyToast').style.opacity='0',1500)">
+                        <i class="fa-solid fa-envelope" style="font-size:1rem;"></i>
+                        <span>chethanvasthawtippani@gmail.com</span>
+                        <span id="copyHint" style="font-size:0.55rem; font-family: var(--pixel-font); color: var(--accent-gold); opacity: 0; transition: opacity 0.2s; white-space: nowrap;">click to copy</span>
+                        <span id="copyToast" style="position:absolute; top:-1.5rem; left:50%; transform:translateX(-50%); font-size:0.5rem; font-family:var(--pixel-font); color:#2ecc71; background:#fff; padding:0.2rem 0.5rem; border:1px solid #2ecc71; border-radius:3px; opacity:0; transition:opacity 0.3s; pointer-events:none;">Copied!</span>
                     </span>
+                    <style>
+                        #btnCopy:hover #copyHint { opacity: 1; }
+                    </style>
                     <!-- GitHub -->
                     <a href="https://github.com/Chethan-4255" target="_blank" rel="noopener" title="GitHub" style="color: var(--text-espresso); font-size: 1.4rem; transition: color 0.2s;"><i class="fa-brands fa-github"></i></a>
                     <!-- LinkedIn -->
@@ -428,7 +434,7 @@
             <!-- Hidden items below -->
 
             <!-- Item 4 -->
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #000; padding: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <div class="framer-kaxd7n"
@@ -455,7 +461,7 @@
             </div>
 
             <!-- Item 5 -->
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #fff; padding: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <img src="https://media.licdn.com/dms/image/v2/D4D0BAQGt239fVh8SVg/company-logo_200_200/company-logo_200_200/0/1702467563115/project_clay_logo?e=1773273600&v=beta&t=bC7x8dVWgdvHh20u1cNQtQmRIzX4nFgGJit6nraM7w4"
@@ -474,7 +480,7 @@
             </div>
 
             <!-- Item 6 -->
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #fff; padding: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <img src="https://media.licdn.com/dms/image/v2/C4D0BAQE4ZeZi5mCyNA/company-logo_200_200/company-logo_200_200/0/1660593083981?e=1773273600&v=beta&t=ZKdlQyMZncDRbIeVRqVu_2hNoyDOIwuZSZX0G3kMLo8"
@@ -499,7 +505,7 @@
             </div>
 
             <!-- Item 7 -->
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #fff; padding: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <img src="https://media.licdn.com/dms/image/v2/C4D0BAQE4ZeZi5mCyNA/company-logo_200_200/company-logo_200_200/0/1660593083981?e=1773273600&v=beta&t=ZKdlQyMZncDRbIeVRqVu_2hNoyDOIwuZSZX0G3kMLo8"
@@ -526,7 +532,7 @@
             </div>
 
             <!-- Item 8 -->
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #fff; padding: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <img src="https://media.licdn.com/dms/image/v2/C4D0BAQE4ZeZi5mCyNA/company-logo_200_200/company-logo_200_200/0/1660593083981?e=1773273600&v=beta&t=ZKdlQyMZncDRbIeVRqVu_2hNoyDOIwuZSZX0G3kMLo8"
@@ -546,7 +552,7 @@
             </div>
 
             <!-- Item 9 -->
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #fff; padding: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <img src="https://media.licdn.com/dms/image/v2/C4E0BAQGybnEADjiqUg/company-logo_200_200/company-logo_200_200/0/1630571650449/testdome_logo?e=1773273600&v=beta&t=124InXNASMyRaCGlpMmz5BbsARDPqHXlaCei1-QbcXE"
@@ -565,7 +571,7 @@
             </div>
 
             <!-- Item 10 -->
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #fff; padding: 2px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <img src="https://media.licdn.com/dms/image/v2/D560BAQGiz5ecgpCtkA/company-logo_200_200/company-logo_200_200/0/1688684715866/ibm_logo?e=1773273600&v=beta&t=u4hSWMRdeDSjXhQ9QIetV_oKlktwXlN4wxqdEWq9Ki8"
@@ -586,9 +592,6 @@
                     </div>
                 </div>
             </div>
-
-            <button class="li-show-all" data-target="credentials">Show all <i
-                    class="fa-solid fa-arrow-right"></i></button>
         </section>
 
         <!-- Projects -->
@@ -708,7 +711,7 @@
                 </div>
             </div>
 
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
                     <i class="fa-solid fa-folder"></i>
@@ -767,7 +770,7 @@
                 </div>
             </div>
 
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
                     <i class="fa-solid fa-folder"></i>
@@ -801,7 +804,7 @@
                 </div>
             </div>
 
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
                     <i class="fa-solid fa-folder"></i>
@@ -820,7 +823,7 @@
                 </div>
             </div>
 
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
                     <i class="fa-solid fa-folder"></i>
@@ -838,7 +841,7 @@
                 </div>
             </div>
 
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
                     <i class="fa-solid fa-folder"></i>
@@ -867,7 +870,7 @@
                 </div>
             </div>
 
-            <div class="li-item hidden-item">
+            <div class="li-item">
                 <div class="li-logo"
                     style="background: #eee; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
                     <i class="fa-solid fa-folder"></i>
@@ -884,8 +887,6 @@
                     </div>
                 </div>
             </div>
-
-            <button class="li-show-all" data-target="projects">Show all <i class="fa-solid fa-arrow-right"></i></button>
         </section>
 
 
