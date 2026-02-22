@@ -29,6 +29,20 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: url('https://unpkg.com/rpgui@1.0.3/img/cursor/default.png'), auto;
+}
+
+/* 8-Bit Hover Cursor for interactables */
+a,
+button,
+input[type="submit"],
+input[type="button"],
+.btn,
+.li-credential-btn,
+.li-show-all,
+.hamburger,
+.cert-card {
+    cursor: url('https://unpkg.com/rpgui@1.0.3/img/cursor/pointer.png'), pointer !important;
 }
 
 /* Typography */
