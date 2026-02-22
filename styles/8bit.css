@@ -388,11 +388,11 @@ header.navbar {
    LinkedIn-Style List Sections
 -------------------------------------- */
 .li-section {
-    background: #fff;
+    background: var(--bg-cream);
     border: var(--border-size) solid var(--text-espresso);
     padding: 1.5rem;
     margin-bottom: 2rem;
-    box-shadow: 4px 4px 0 var(--shadow-espresso);
+    box-shadow: 8px 8px 0 var(--shadow-espresso);
 }
 
 .li-header {
@@ -400,19 +400,21 @@ header.navbar {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
+    border-bottom: 4px solid var(--text-espresso);
+    padding-bottom: 0.5rem;
 }
 
 .li-header h2 {
-    font-family: var(--body-font);
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-family: var(--pixel-font);
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .li-item {
     display: flex;
     gap: 1rem;
     padding: 1.5rem 0;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 2px dashed var(--text-espresso);
 }
 
 .li-item:last-child {
@@ -420,10 +422,12 @@ header.navbar {
 }
 
 .li-logo {
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
-    border-radius: 4px;
+    border: 2px solid var(--text-espresso);
+    background: #fff;
+    image-rendering: pixelated;
 }
 
 .li-content {
@@ -431,56 +435,63 @@ header.navbar {
 }
 
 .li-title {
-    font-weight: 600;
-    font-size: 1.1rem;
+    font-family: var(--pixel-font);
+    font-size: 0.8rem;
     color: var(--text-espresso);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
 }
 
 .li-subtitle {
-    font-size: 0.95rem;
-    color: #444;
-    margin-bottom: 0.2rem;
+    font-family: var(--pixel-font);
+    font-size: 0.6rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
 }
 
 .li-date {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.5rem;
+    font-family: var(--pixel-font);
+    font-size: 0.55rem;
+    color: var(--text-espresso);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
 }
 
 .li-desc {
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--text-espresso);
     margin-bottom: 0.8rem;
+    font-weight: 500;
 }
 
 .li-skills {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-family: var(--pixel-font);
+    font-size: 0.6rem;
+    line-height: 1.4;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     color: var(--text-espresso);
 }
 
 .li-credential-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.4rem 0.8rem;
-    border: 1px solid #666;
-    border-radius: 16px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    display: inline-block;
+    font-family: var(--pixel-font);
+    font-size: 0.6rem;
+    padding: 0.5rem 0.8rem;
     text-decoration: none;
-    color: #444;
+    cursor: pointer;
+    border: 2px solid var(--text-espresso);
+    background-color: var(--bg-cream);
+    color: var(--text-espresso);
+    box-shadow: 2px 2px 0 var(--text-espresso);
     margin-bottom: 0.8rem;
-    transition: background 0.2s;
+    transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .li-credential-btn:hover {
-    background: #f0f0f0;
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--text-espresso);
 }
 
 .li-thumbnails {
@@ -494,30 +505,30 @@ header.navbar {
     width: 120px;
     height: 70px;
     object-fit: cover;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 2px solid var(--text-espresso);
+    background-color: var(--accent-gold);
 }
 
 .li-show-all {
     display: block;
     text-align: center;
     padding: 1rem 0;
-    border-top: 1px solid #e0e0e0;
-    font-weight: 600;
-    font-size: 1rem;
+    margin-top: 1rem;
+    font-family: var(--pixel-font);
+    font-size: 0.8rem;
     color: var(--text-espresso);
     text-decoration: none;
-    transition: background 0.2s;
     cursor: pointer;
-    font-family: inherit;
-    background: none;
-    border: none;
+    background: var(--accent-gold);
+    border: 2px solid var(--text-espresso);
     width: 100%;
-    margin-top: 1rem;
+    box-shadow: 4px 4px 0 var(--text-espresso);
+    transition: transform 0.1s, box-shadow 0.1s;
 }
 
 .li-show-all:hover {
-    background: #f9f9f9;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--text-espresso);
 }
 
 .hidden-item {
