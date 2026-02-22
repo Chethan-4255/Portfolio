@@ -62,29 +62,32 @@
                 </p>
                 <!-- Social Icons Row -->
                 <div
-                    style="display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 1.5rem; align-items: center;">
+                    style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; align-items: center; flex-wrap: wrap;">
                     <!-- Email Copy -->
                     <span id="btnCopy"
-                        style="cursor:pointer; display:inline-flex; align-items:center; gap:0.5rem; position:relative; color: var(--text-espresso); font-size: 0.85rem; font-family: var(--body-font); transition: color 0.2s;"
+                        style="cursor:pointer; display:inline-flex; align-items:center; gap:0.4rem; position:relative; color: var(--text-espresso); font-size: 0.85rem; font-family: var(--body-font); transition: transform 0.2s;"
                         onclick="navigator.clipboard.writeText('chethanvasthawtippani@gmail.com'); document.getElementById('copyToast').style.opacity='1'; setTimeout(()=>document.getElementById('copyToast').style.opacity='0',1500)"
-                        onmouseenter="document.getElementById('copyHint').style.opacity='1'"
-                        onmouseleave="document.getElementById('copyHint').style.opacity='0'">
+                        onmouseenter="document.getElementById('copyHint').style.opacity='1'; this.style.transform='translateY(-2px)'"
+                        onmouseleave="document.getElementById('copyHint').style.opacity='0'; this.style.transform='translateY(0)'">
                         <i class="fa-solid fa-envelope" style="font-size:1rem;"></i>
                         <span>chethanvasthawtippani@gmail.com</span>
                         <span id="copyHint"
-                            style="font-size:0.55rem; font-family: var(--pixel-font); color: var(--accent-gold); opacity: 0; transition: opacity 0.2s; white-space: nowrap;">click
+                            style="position:absolute; top:-1.2rem; left:50%; transform:translateX(-50%); font-size:0.5rem; font-family: var(--pixel-font); color: var(--accent-gold); opacity: 0; transition: opacity 0.2s; white-space: nowrap; pointer-events:none;">click
                             to copy</span>
                         <span id="copyToast"
-                            style="position:absolute; top:-1.5rem; left:50%; transform:translateX(-50%); font-size:0.5rem; font-family:var(--pixel-font); color:#2ecc71; background:#fff; padding:0.2rem 0.5rem; border:1px solid #2ecc71; border-radius:3px; opacity:0; transition:opacity 0.3s; pointer-events:none;">Copied!</span>
+                            style="position:absolute; top:-2.2rem; left:50%; transform:translateX(-50%); font-size:0.5rem; font-family:var(--pixel-font); color:#2ecc71; background:#fff; padding:0.2rem 0.5rem; border:1px solid #2ecc71; border-radius:3px; opacity:0; transition:opacity 0.3s; pointer-events:none;">Copied!</span>
                     </span>
                     <!-- GitHub -->
                     <a href="https://github.com/Chethan-4255" target="_blank" rel="noopener" title="GitHub"
-                        style="color: var(--text-espresso); font-size: 1.4rem; transition: color 0.2s;"><i
-                            class="fa-brands fa-github"></i></a>
+                        style="color: var(--text-espresso); font-size: 1.4rem; transition: transform 0.2s, color 0.2s; display:inline-flex;"
+                        onmouseenter="this.style.transform='translateY(-2px)'"
+                        onmouseleave="this.style.transform='translateY(0)'"><i class="fa-brands fa-github"></i></a>
                     <!-- LinkedIn -->
                     <a href="https://www.linkedin.com/in/chethan-vasthaw/" target="_blank" rel="noopener"
-                        title="LinkedIn" style="color: #0077b5; font-size: 1.4rem; transition: color 0.2s;"><i
-                            class="fa-brands fa-linkedin"></i></a>
+                        title="LinkedIn"
+                        style="color: #0077b5; font-size: 1.4rem; transition: transform 0.2s, color 0.2s; display:inline-flex;"
+                        onmouseenter="this.style.transform='translateY(-2px)'"
+                        onmouseleave="this.style.transform='translateY(0)'"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
                 <div class="hero-actions" style="justify-content: center;">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -1307,7 +1310,9 @@
                     style="color: #FAF3E6 !important; background: var(--accent-gold); padding: 0.4rem 0.9rem; border-radius: 3px; font-family: var(--pixel-font); font-size: 0.65rem; text-decoration: none;"><i
                         class="fa-solid fa-download"></i> Resume</a>
             </div>
-            <p class="copyright body-text">&copy; 2025 Chethan Vasthaw Tippani. All Rights Reserved.</p>
+            <p class="copyright body-text" style="color: #FAF3E6 !important;">&copy; <span id="footerYear"></span>
+                Chethan Vasthaw Tippani. All Rights Reserved.</p>
+            <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
         </div>
     </footer>
 
