@@ -901,8 +901,8 @@ header.navbar {
     }
 
     .li-logo {
-        width: 48px;
-        height: 48px;
+        width: 56px;
+        height: 56px;
         flex-shrink: 0;
     }
 
@@ -928,6 +928,10 @@ header.navbar {
         width: 100%;
         max-width: 200px;
         height: auto;
+    }
+
+    .li-thumbnail.cert {
+        max-width: 120px;
     }
 
     .pixel-card {
