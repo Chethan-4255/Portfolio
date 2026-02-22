@@ -436,39 +436,44 @@ header.navbar {
 
 .li-title {
     font-family: var(--pixel-font);
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    font-weight: normal;
     color: var(--text-espresso);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
 }
 
 .li-subtitle {
     font-family: var(--pixel-font);
-    font-size: 0.6rem;
+    font-size: 0.7rem;
+    font-weight: normal;
     color: var(--accent-gold);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
 }
 
 .li-date {
     font-family: var(--pixel-font);
-    font-size: 0.55rem;
+    font-size: 0.65rem;
+    font-weight: normal;
     color: var(--text-espresso);
     margin-bottom: 0.8rem;
-    font-weight: 500;
+    line-height: 1.5;
 }
 
 .li-desc {
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 500;
     color: var(--text-espresso);
     margin-bottom: 0.8rem;
-    font-weight: 500;
 }
 
 .li-skills {
     font-family: var(--pixel-font);
-    font-size: 0.6rem;
-    line-height: 1.4;
+    font-size: 0.65rem;
+    font-weight: normal;
+    line-height: 1.6;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     color: var(--text-espresso);
