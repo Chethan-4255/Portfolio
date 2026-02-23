@@ -922,16 +922,29 @@ header.navbar {
 
     .li-thumbnails {
         flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     .li-thumbnail {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
+        width: 80px;
+        height: 50px;
+        max-width: none;
     }
 
-    .li-thumbnail.cert {
-        max-width: 120px;
+    /* Inline-styled certificate card containers */
+    .cert-card {
+        width: 120px !important;
+        height: 90px !important;
+    }
+
+    .cert-card img {
+        height: 60px !important;
+    }
+
+    .cert-card div:last-child {
+        font-size: 0.6rem !important;
+        height: 28px !important;
+        padding: 0.15rem 0.3rem !important;
     }
 
     .pixel-card {
@@ -983,17 +996,14 @@ header.navbar {
         justify-content: center;
     }
 
-    /* Overflow protection */
-    body {
+    /* Sections */
+    .li-section {
+        padding: 1rem;
+        box-shadow: 4px 4px 0 var(--shadow-espresso);
         overflow-x: hidden;
-    }
-
-    .container {
-        overflow-x: hidden;
-    }
-
-    .hero-section {
-        overflow-x: hidden;
+        word-wrap: break-word;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     /* Credential & live buttons */
@@ -1047,12 +1057,12 @@ header.navbar {
         display: none !important;
     }
 
-    /* Sections full width */
+    /* Sections — keep styled on mobile, no negative margins */
     .li-section {
-        margin-left: -0.5rem;
-        margin-right: -0.5rem;
-        border-left: none;
-        border-right: none;
+        margin-left: 0;
+        margin-right: 0;
+        border: var(--border-size) solid var(--text-espresso);
+        box-shadow: 3px 3px 0 var(--shadow-espresso);
     }
 
     .li-title {
@@ -1062,6 +1072,26 @@ header.navbar {
     .li-desc {
         font-size: 0.78rem;
         line-height: 1.6;
+    }
+
+    /* Thumbnails — even smaller on phones */
+    .li-thumbnail {
+        width: 64px;
+        height: 42px;
+    }
+
+    .cert-card {
+        width: 100px !important;
+        height: 78px !important;
+    }
+
+    .cert-card img {
+        height: 50px !important;
+    }
+
+    .cert-card div:last-child {
+        font-size: 0.5rem !important;
+        height: 24px !important;
     }
 
     .container {
@@ -1127,112 +1157,190 @@ header.navbar {
         margin: 0 auto;
     }
 }
+
 /* ============================================================
    VISUAL POLISH ENHANCEMENTS
    ============================================================ */
 
 /* 1. Subtle cream texture + diagonal stripes */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(135deg, rgba(193,154,107,0.03) 0 6px, rgba(255,255,255,0) 6px 12px),
-    radial-gradient(circle at 10% 10%, rgba(0,0,0,0.02), transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(0,0,0,0.01), transparent 30%);
-  mix-blend-mode: multiply;
-  z-index: -2;
-  image-rendering: auto;
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(135deg, rgba(193, 154, 107, 0.03) 0 6px, rgba(255, 255, 255, 0) 6px 12px),
+        radial-gradient(circle at 10% 10%, rgba(0, 0, 0, 0.02), transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.01), transparent 30%);
+    mix-blend-mode: multiply;
+    z-index: -2;
+    image-rendering: auto;
 }
 
 body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><filter id='g'><feTurbulence baseFrequency='0.9' stitchTiles='stitch' numOctaves='1' seed='2'/><feColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.94 0 0 0 0 0.92 0 0 0 0.02 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03'/></svg>");
-  opacity: 0.45;
-  mix-blend-mode: overlay;
-  z-index: -1;
-  pointer-events: none;
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64'><filter id='g'><feTurbulence baseFrequency='0.9' stitchTiles='stitch' numOctaves='1' seed='2'/><feColorMatrix values='0 0 0 0 0.96 0 0 0 0 0.94 0 0 0 0 0.92 0 0 0 0.02 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03'/></svg>");
+    opacity: 0.45;
+    mix-blend-mode: overlay;
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* 2. Card tilt + inner shine */
 .pixel-card {
-  position: relative;
-  transition: transform 0.25s cubic-bezier(.2,.9,.3,1), box-shadow 0.2s;
-  transform-origin: center;
-  will-change: transform;
+    position: relative;
+    transition: transform 0.25s cubic-bezier(.2, .9, .3, 1), box-shadow 0.2s;
+    transform-origin: center;
+    will-change: transform;
 }
+
 .pixel-card:hover {
-  transform: translateY(-8px) rotateX(3deg) rotateY(-2deg);
-  box-shadow: 18px 18px 0 rgba(43,31,26,0.95);
+    transform: translateY(-8px) rotateX(3deg) rotateY(-2deg);
+    box-shadow: 18px 18px 0 rgba(43, 31, 26, 0.95);
 }
+
 .pixel-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(120deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 40%);
-  mix-blend-mode: overlay;
-  opacity: 0;
-  transition: opacity 0.25s;
-  border-radius: 2px;
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 40%);
+    mix-blend-mode: overlay;
+    opacity: 0;
+    transition: opacity 0.25s;
+    border-radius: 2px;
 }
-.pixel-card:hover::after { opacity: 1; }
-.pixel-card:focus-within { outline: 3px dashed rgba(193,154,107,0.35); }
+
+.pixel-card:hover::after {
+    opacity: 1;
+}
+
+.pixel-card:focus-within {
+    outline: 3px dashed rgba(193, 154, 107, 0.35);
+}
 
 /* 3. Skill badge tooltips */
 .skill-badge {
-  position: relative;
-  display: inline-flex;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 0.35rem 0.6rem;
-  border: 2px solid var(--text-espresso);
-  background: var(--bg-cream);
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.35rem 0.6rem;
+    border: 2px solid var(--text-espresso);
+    background: var(--bg-cream);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .skill-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 3px 3px 0 var(--shadow-espresso);
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 0 var(--shadow-espresso);
 }
+
 .skill-badge:hover::after {
-  content: attr(data-tip);
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--text-espresso);
-  color: var(--bg-cream);
-  padding: 0.35rem 0.6rem;
-  font-size: 0.6rem;
-  font-family: var(--pixel-font);
-  border-radius: 4px;
-  white-space: nowrap;
-  z-index: 30;
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-espresso);
+    color: var(--bg-cream);
+    padding: 0.35rem 0.6rem;
+    font-size: 0.6rem;
+    font-family: var(--pixel-font);
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 30;
 }
 
 /* 6. Skip-to-content link */
 .skip-link {
-  position: absolute;
-  left: -999px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
 }
+
 .skip-link:focus {
-  left: 1rem;
-  top: 1rem;
-  width: auto;
-  height: auto;
-  background: var(--text-espresso);
-  color: var(--bg-cream);
-  padding: 0.4rem 0.6rem;
-  font-family: var(--pixel-font);
-  font-size: 0.6rem;
-  z-index: 1000;
-  text-decoration: none;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    background: var(--text-espresso);
+    color: var(--bg-cream);
+    padding: 0.4rem 0.6rem;
+    font-family: var(--pixel-font);
+    font-size: 0.6rem;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+/* ============================================================
+   STORY CAROUSEL IMAGE STYLES
+   ============================================================ */
+.story-img {
+    width: 100%;
+    max-width: 280px;
+    height: 160px;
+    object-fit: cover;
+    border: 3px solid var(--accent-gold);
+    border-radius: 6px;
+    image-rendering: pixelated;
+    box-shadow: 4px 4px 0 rgba(43, 31, 26, 0.4);
+}
+
+/* Pixel mosaic reveal animation */
+.story-img.pixel-reveal {
+    animation: pixelMosaicIn 0.8s cubic-bezier(.25, .46, .45, .94) forwards;
+}
+
+@keyframes pixelMosaicIn {
+    0% {
+        opacity: 0;
+        filter: blur(12px) contrast(1.5) saturate(0.5);
+        transform: scale(1.15);
+        image-rendering: pixelated;
+    }
+
+    25% {
+        opacity: 0.6;
+        filter: blur(8px) contrast(1.3) saturate(0.7);
+        transform: scale(1.1);
+    }
+
+    50% {
+        opacity: 0.8;
+        filter: blur(4px) contrast(1.15) saturate(0.85);
+        transform: scale(1.05);
+    }
+
+    75% {
+        opacity: 0.95;
+        filter: blur(1px) contrast(1.05) saturate(0.95);
+        transform: scale(1.02);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0) contrast(1) saturate(1);
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .story-img {
+        max-width: 200px;
+        height: 120px;
+    }
+}
+
+/* Global overflow protection for mobile */
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
 }

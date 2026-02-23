@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | Chethan Vasthaw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <style>
+        :root {
+            --bg-cream: #FAF3E6;
+            --accent-gold: #C19A6B;
+            --text-espresso: #2B1F1A;
+            --shadow-espresso: rgba(43, 31, 26, 0.8);
+            --pixel-font: 'Press Start 2P', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            color: var(--text-espresso);
+            font-family: var(--pixel-font);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container-404 {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        /* Glitchy 404 text */
+        .error-code {
+            font-size: clamp(4rem, 15vw, 8rem);
+            color: var(--text-espresso);
+            text-shadow:
+                4px 4px 0 var(--accent-gold),
+                -2px -2px 0 var(--accent-gold);
+            animation: glitch 2.5s infinite;
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        @keyframes glitch {
+
+            0%,
+            90%,
+            100% {
+                transform: translate(0);
+            }
+
+            92% {
+                transform: translate(-3px, 2px);
+            }
+
+            94% {
+                transform: translate(3px, -2px);
+            }
+
+            96% {
+                transform: translate(-2px, -1px);
+            }
+
+            98% {
+                transform: translate(2px, 1px);
+            }
+        }
+
+        /* Ghost character */
+        .ghost {
+            font-size: 4rem;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .message {
+            font-size: 0.7rem;
+            line-height: 2;
+            color: var(--text-espresso);
+            margin-bottom: 2rem;
+        }
+
+        .sub-message {
+            font-size: 0.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 2.5rem;
+            line-height: 2;
+        }
+
+        /* Home button */
+        .home-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-family: var(--pixel-font);
+            font-size: 0.65rem;
+            color: var(--bg-cream);
+            background: var(--text-espresso);
+            border: 4px solid var(--text-espresso);
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.2s;
+            box-shadow: 6px 6px 0 var(--accent-gold);
+        }
+
+        .home-btn:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 var(--accent-gold);
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            color: var(--text-espresso);
+        }
+
+        .home-btn:active {
+            transform: translate(6px, 6px);
+            box-shadow: 0 0 0 var(--accent-gold);
+        }
+
+        /* Pixel art ground */
+        .ground {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: repeating-linear-gradient(90deg,
+                    var(--accent-gold) 0px,
+                    var(--accent-gold) 20px,
+                    #b8895f 20px,
+                    #b8895f 40px);
+            border-top: 4px solid var(--text-espresso);
+        }
+
+        /* Floating pixels */
+        .pixel {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gold);
+            opacity: 0.3;
+            animation: drift linear infinite;
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.3;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(-20px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating pixel particles -->
+    <div class="pixel" style="left:10%; animation-duration:7s; animation-delay:0s;"></div>
+    <div class="pixel" style="left:25%; animation-duration:9s; animation-delay:1s; width:6px; height:6px;"></div>
+    <div class="pixel" style="left:40%; animation-duration:6s; animation-delay:2s;"></div>
+    <div class="pixel" style="left:55%; animation-duration:8s; animation-delay:0.5s; width:10px; height:10px;"></div>
+    <div class="pixel" style="left:70%; animation-duration:10s; animation-delay:3s;"></div>
+    <div class="pixel" style="left:85%; animation-duration:7s; animation-delay:1.5s; width:6px; height:6px;"></div>
+    <div class="pixel" style="left:5%; animation-duration:11s; animation-delay:4s;"></div>
+    <div class="pixel" style="left:93%; animation-duration:8s; animation-delay:2.5s; width:12px; height:12px;"></div>
+
+    <div class="container-404">
+        <div class="ghost">👾</div>
+        <div class="error-code">404</div>
+        <div class="message">PAGE NOT FOUND</div>
+        <div class="sub-message">The page you're looking for has wandered off into the pixel void...</div>
+        <a href="index.html" class="home-btn">← RETURN HOME</a>
+    </div>
+
+    <div class="ground"></div>
+</body>
+
+</html>
