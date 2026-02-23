@@ -217,3 +217,38 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(initModal, 100);
 
 });
+
+
+// ============================================================
+// VISUAL POLISH ENHANCEMENTS
+// ============================================================
+
+// 4. Subtle parallax on mousemove for cube-container
+(() => {
+  const container = document.querySelector('.cube-container');
+  if (!container) return;
+  const cubes = [...container.querySelectorAll('.cube')];
+  window.addEventListener('mousemove', (e) => {
+    const cx = e.clientX / window.innerWidth - 0.5;
+    const cy = e.clientY / window.innerHeight - 0.5;
+    cubes.forEach((c, idx) => {
+      const depth = (idx + 1) * 6;
+      const tx = cx * depth;
+      const ty = cy * depth;
+      c.style.transform = `translate(${tx}px, ${ty}px) rotate3d(1,1,0,${(idx + 1) * 30}deg)`;
+    });
+  });
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    container.style.display = 'none';
+  }
+})();
+
+// 11. Keyboard close for modal
+document.addEventListener('keydown', (e) => {
+  const modal = document.getElementById('universal-modal');
+  if (!modal) return;
+  if (e.key === 'Escape' && modal.classList.contains('active')) {
+    const closeBtn = document.getElementById('modal-close');
+    if (closeBtn) closeBtn.click();
+  }
+});

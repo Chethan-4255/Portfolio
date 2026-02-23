@@ -14,6 +14,32 @@
     <meta property="og:description"
         content="Portfolio of Chethan Vasthaw Tippani, an enthusiastic technologist and full-stack developer.">
     <meta property="og:image" content="https://chethan-4255.github.io/Portfolio/assets/og-image.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chethan Vasthaw Tippani - Portfolio">
+    <meta name="twitter:description" content="Young tech innovator, web & blockchain developer.">
+    <meta name="twitter:image" content="https://chethan-4255.github.io/Portfolio/assets/og-image.png">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow">
+
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Chethan Vasthaw Tippani",
+      "url": "https://chethan-4255.github.io/Portfolio/",
+      "image": "https://chethan-4255.github.io/Portfolio/assets/og-image.png",
+      "sameAs": [
+        "https://github.com/Chethan-4255",
+        "https://www.linkedin.com/in/chethan-vasthaw/"
+      ],
+      "jobTitle": "Web Developer & Blockchain Developer",
+      "description": "Young tech innovator focusing on AI, web, and decentralized platforms."
+    }
+    </script>
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +52,7 @@
 </head>
 
 <body>
+    <a href="#maincontent" class="skip-link">Skip to content</a>
     <div class="cube-container">
         <div class="cube"></div>
         <div class="cube cube2"></div>
@@ -52,7 +79,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="maincontent">
         <section id="hero" class="container" style="padding-top: 5rem; padding-bottom: 5rem;">
             <div class="hero-content" style="text-align: center;">
                 <h2 class="pixel-heading">Hello, World!</h2>
@@ -1335,7 +1362,7 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <script src="scripts/main.js"></script>
+    <script defer src="scripts/main.js"></script>
     <script>
         // === Google Forms Silent Submit ===
         function submitToGoogleForms(e) {
