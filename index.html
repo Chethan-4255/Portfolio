@@ -95,6 +95,14 @@
                     <a href="RESUME_CHETHAN_VASTHAW.pdf" download class="btn btn-secondary"
                         style="border-color: var(--accent-gold);"><i class="fa-solid fa-download"></i> Resume</a>
                 </div>
+                <!-- View My Story -->
+                <div style="text-align: center; margin-top: 1.2rem;">
+                    <button onclick="openStory()"
+                        style="background: none; border: 2px dashed var(--accent-gold); padding: 0.5rem 1.5rem; font-family: var(--pixel-font); font-size: 0.6rem; color: var(--accent-gold); cursor: pointer; transition: all 0.3s; border-radius: 4px;"
+                        onmouseenter="this.style.background='var(--accent-gold)'; this.style.color='#fff'"
+                        onmouseleave="this.style.background='none'; this.style.color='var(--accent-gold)'"><i
+                            class="fa-solid fa-book-open"></i> View My Story</button>
+                </div>
             </div>
         </section>
 
@@ -1387,6 +1395,125 @@
                 desc.setAttribute('data-collapsed', 'true');
             }
         }
+    </script>
+
+    <!-- ===== FULLSCREEN STORY CAROUSEL ===== -->
+    <div id="storyOverlay"
+        style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.95); align-items:center; justify-content:center; flex-direction:column;">
+        <!-- Progress bar -->
+        <div
+            style="position:absolute; top:0; left:0; right:0; height:4px; background:rgba(255,255,255,0.15); z-index:10;">
+            <div id="storyProgress"
+                style="height:100%; background:var(--accent-gold); width:0%; transition:width 0.3s;"></div>
+        </div>
+        <!-- Close -->
+        <button onclick="closeStory()"
+            style="position:absolute; top:1rem; right:1.5rem; background:none; border:none; color:#fff; font-size:2rem; cursor:pointer; z-index:10; transition:transform 0.2s;"
+            onmouseenter="this.style.transform='scale(1.2)'"
+            onmouseleave="this.style.transform='scale(1)'">&times;</button>
+        <!-- Card -->
+        <div id="storyCard"
+            style="max-width:480px; width:90%; min-height:400px; background:var(--bg-cream); border:4px solid var(--accent-gold); border-radius:8px; padding:2.5rem 2rem; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:1rem; transition:all 0.5s cubic-bezier(.4,0,.2,1); opacity:1; transform:translateX(0);">
+            <div id="storyEmoji" style="font-size:3rem;"></div>
+            <div id="storyTitle"
+                style="font-family:'Press Start 2P',monospace; font-size:0.8rem; color:var(--text-espresso); line-height:1.7;">
+            </div>
+            <div id="storyText" style="font-family:'Inter',sans-serif; font-size:0.95rem; color:#555; line-height:1.7;">
+            </div>
+            <div id="storyYear"
+                style="font-family:'Press Start 2P',monospace; font-size:0.55rem; color:var(--accent-gold); margin-top:0.5rem;">
+            </div>
+        </div>
+        <!-- Nav hints -->
+        <div
+            style="position:absolute; bottom:1.5rem; color:rgba(255,255,255,0.4); font-family:'Press Start 2P',monospace; font-size:0.4rem; display:flex; gap:1.5rem;">
+            <span>&larr; prev</span><span>auto-playing</span><span>next &rarr;</span>
+        </div>
+        <!-- Side arrows -->
+        <button onclick="prevStory()"
+            style="position:absolute; left:1rem; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(255,255,255,0.5); font-size:2.5rem; cursor:pointer; transition:color 0.2s;"
+            onmouseenter="this.style.color='#fff'"
+            onmouseleave="this.style.color='rgba(255,255,255,0.5)'">&lsaquo;</button>
+        <button onclick="nextStory()"
+            style="position:absolute; right:1rem; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(255,255,255,0.5); font-size:2.5rem; cursor:pointer; transition:color 0.2s;"
+            onmouseenter="this.style.color='#fff'"
+            onmouseleave="this.style.color='rgba(255,255,255,0.5)'">&rsaquo;</button>
+    </div>
+
+    <script>
+        // Story data
+        const storySlides = [
+            { emoji: '\u{1F44B}', title: 'Hey, I\'m Chethan!', text: 'A curious builder from India who fell in love with technology at a young age. This is my journey...', year: '' },
+            { emoji: '\u{1F4BB}', title: 'The Spark', text: 'It started with a fascination for how websites work. I taught myself HTML, CSS, and JavaScript — building anything I could imagine.', year: '2020' },
+            { emoji: '\u{1F6E1}', title: 'Security Bug Hunter', text: 'I discovered a vulnerability in a state government portal (Dharani) and reported it responsibly. It was acknowledged by NCIIPC — my first real-world impact.', year: '2022' },
+            { emoji: '\u{1F3C6}', title: 'Science Fair', text: 'Won 1st Place at the District Science Fair with my Laser Security System project. Hardware meets software!', year: '2022' },
+            { emoji: '\u{26D3}', title: 'Blockchain Explorer', text: 'Dove deep into Web3 — built smart contracts, participated in testnets (Celer, Polygon, Nexus), and even created a test cryptocurrency.', year: '2023' },
+            { emoji: '\u{1F916}', title: 'AI & ML Journey', text: 'Attended the IIT Bombay ML Workshop and completed Google\'s 5-Day AI Agents course. Generative AI became my playground.', year: '2024' },
+            { emoji: '\u{1F6A8}', title: 'AI4AndhraPolice', text: 'Built AI Petition Analysis dashboards for Andhra Pradesh Police — real data, real impact, real responsibility.', year: '2024' },
+            { emoji: '\u{1F3C5}', title: 'IIT Bombay Techfest', text: 'Made it to the finals at IIT Bombay Techfest with a dApp and farmer empowerment application.', year: '2024' },
+            { emoji: '\u{1F310}', title: 'Freelance & Internships', text: 'Built Study2Career.ca for a Canadian consulting firm, interned at Canvas For Impact, and developed Bargain Bazaar — shipping real products.', year: '2025' },
+            { emoji: '\u{1F680}', title: 'What\'s Next?', text: 'Full-stack development, cybersecurity research, and building products that matter. The journey is just getting started.', year: '2025+' },
+        ];
+        let storyIdx = 0, storyTimer = null;
+        function openStory() {
+            storyIdx = 0;
+            document.getElementById('storyOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            showStorySlide(0);
+            startStoryTimer();
+        }
+        function closeStory() {
+            document.getElementById('storyOverlay').style.display = 'none';
+            document.body.style.overflow = '';
+            clearInterval(storyTimer);
+        }
+        function showStorySlide(dir) {
+            const card = document.getElementById('storyCard');
+            const s = storySlides[storyIdx];
+            // Animate out
+            card.style.opacity = '0';
+            card.style.transform = dir >= 0 ? 'translateX(60px)' : 'translateX(-60px)';
+            setTimeout(() => {
+                document.getElementById('storyEmoji').textContent = s.emoji;
+                document.getElementById('storyTitle').textContent = s.title;
+                document.getElementById('storyText').textContent = s.text;
+                document.getElementById('storyYear').textContent = s.year;
+                // Animate in from opposite side
+                card.style.transform = dir >= 0 ? 'translateX(-60px)' : 'translateX(60px)';
+                requestAnimationFrame(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateX(0)';
+                });
+            }, 250);
+            // Progress
+            document.getElementById('storyProgress').style.width = ((storyIdx + 1) / storySlides.length * 100) + '%';
+        }
+        function nextStory() {
+            storyIdx = (storyIdx + 1) % storySlides.length;
+            showStorySlide(1);
+            resetStoryTimer();
+        }
+        function prevStory() {
+            storyIdx = (storyIdx - 1 + storySlides.length) % storySlides.length;
+            showStorySlide(-1);
+            resetStoryTimer();
+        }
+        function startStoryTimer() { storyTimer = setInterval(nextStory, 5000); }
+        function resetStoryTimer() { clearInterval(storyTimer); startStoryTimer(); }
+        // Keyboard
+        document.addEventListener('keydown', e => {
+            if (document.getElementById('storyOverlay').style.display !== 'flex') return;
+            if (e.key === 'ArrowRight' || e.key === ' ') nextStory();
+            else if (e.key === 'ArrowLeft') prevStory();
+            else if (e.key === 'Escape') closeStory();
+        });
+        // Touch swipe
+        let stTouchX = 0;
+        document.getElementById('storyOverlay').addEventListener('touchstart', e => { stTouchX = e.changedTouches[0].screenX; });
+        document.getElementById('storyOverlay').addEventListener('touchend', e => {
+            const diff = e.changedTouches[0].screenX - stTouchX;
+            if (Math.abs(diff) > 50) { diff < 0 ? nextStory() : prevStory(); }
+        });
     </script>
 </body>
 
